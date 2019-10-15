@@ -42,13 +42,16 @@ task('deploy:publish_resources', function () {
 task('deploy', [
     'deploy:info',
     'deploy:prepare',
+    'deploy:lock',
     'deploy:release',
     'deploy:update_code',
     'deploy:vendors',
     'deploy:shared',
+    'deploy:writable',
     'deploy:run_migrations',
     'deploy:publish_resources',
     'deploy:symlink',
+    'deploy:unlock',
     'cleanup',
 ])->desc('Deploy your project');
 

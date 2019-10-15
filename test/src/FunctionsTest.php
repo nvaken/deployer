@@ -14,7 +14,6 @@ use Deployer\Host\Localhost;
 use Deployer\Task\Context;
 use Deployer\Task\GroupTask;
 use Deployer\Task\Task;
-use Deployer\Type\Result;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Input\Input;
 use Symfony\Component\Console\Input\InputInterface;
@@ -98,7 +97,7 @@ class FunctionsTest extends TestCase
     {
         inventory(__DIR__ . '/../fixture/inventory.yml');
 
-        foreach (['app.deployer.org', 'beta.deployer.org'] as $hostname) {
+        foreach (['app.deployer.org', 'beta.deployer.org', 'db1.deployer.org', 'db2.deployer.org'] as $hostname) {
             self::assertInstanceOf(Host::class, $this->deployer->hosts->get($hostname));
         }
     }
